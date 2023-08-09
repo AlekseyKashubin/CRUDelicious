@@ -1,0 +1,58 @@
+@model Dish
+
+
+<body class="bg-dark text-light">
+
+    <div class="text-center">
+        <h2 class="text-center">Edit a Dish</h2>
+        <a asp-action="Index">Home</a>
+        <a asp-action="NewDish">Add a Dish</a>
+    </div>
+
+
+
+    <form asp-action="Update" asp-route-id="@Model.DishId" asp-controller="Home" method="post" class="col-8">
+
+
+        <div class="row">
+            <div class="col-5">
+                <div class="mb-5">
+                    <label asp-for="Chef">Chef's Name:</label>
+                    <input asp-for="Chef" class="form-control" />
+                    <span asp-validation-for="Chef" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="mb-5">
+                    <label asp-for="Name">Name of Dish:</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="mb-5">
+                    <label asp-for="Calories">Number Of Calories:</label>
+                    <input asp-for="Calories" class="form-control" />
+                    <span asp-validation-for="Calories" class="text-danger font-weight-bold"></span>
+                </div>
+            </div>
+            <div class="mb-3 col-2">
+                <label asp-for="Tastiness"> Tastiness Level:</label>
+                <select class="form-select" asp-for="Tastiness" size="1" aria-label="Size 3 select example">
+                    <option selected>Choose a Level</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                </select>
+                <span asp-validation-for="Tastiness" class="text-danger font-weight-bold"></span>
+            </div>
+
+            <div class="mb-3 col-5">
+                <label asp-for="Description">Description (Optional)</label>
+                <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+                <span asp-validation-for="Description" class="text-danger font-weight-bold"></span>
+                <div class="btn">
+                    <input class="btn btn-outline-light" type="submit" value="Edit Dish">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>

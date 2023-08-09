@@ -1,0 +1,29 @@
+@model Dish
+<body class="bg-dark text-light">
+<h1 class="text-center">@Model.Name</h1>
+
+<div class="text-center ml-3">
+    <a class="mr-1" asp-action="Index">Home</a>
+    <a asp-action="NewDish">Add a Dish</a>
+</div>
+
+<div class="text-left">
+    <h2>@Model.Name by @Model.Chef</h2>
+    <hr style="width: 400px;">
+    <p>@Model.Description</p>
+    <p>Calories: @Model.Calories</p>
+    <p>Tastiness: @Model.Tastiness</p>
+
+    <div class="d-flex justify-content-between">
+        <form asp-action="Delete" asp-route-id="@Model.DishId">
+            <button class="btn btn-outline-danger mt-3">Delete Dish</button>
+        </form>
+        <a asp-action="EditDish" asp-route-id="@Model.DishId" class="btn btn-outline-primary mt-3">Edit Dish</a>
+    </div>
+
+
+</div>
+</body>
+
+
+

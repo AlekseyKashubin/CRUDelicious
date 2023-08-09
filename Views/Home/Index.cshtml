@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "CRUDelicious";
+}
+
+<body class="bg-dark text-light">
+    <div class="text-center">
+        <h1 class="display-4">Welcome to @ViewData["Title"]</h1>
+        <a asp-action="Index">Home</a> | <a asp-action="NewDish">Add a Dish</a>
+    </div>
+        <h3 class="text-left font-size-5" >Check out some recent dishes</h3>
+        <hr style="width: 400px;">
+    
+        @foreach (Dish d in ViewBag.everyDish)
+        {
+    
+            <div class="d-flex align-items-baseline">
+                <a asp-action="ViewDish" asp-route-id="@d.DishId" class="me-2"> @d.Name-</a>
+                <p class="me-2">By: @d.Chef</p>
+                <small class="text-muted">@d.CreatedAt</small>
+            </div>
+    
+    
+        }
+</body>
+
+
+
+
